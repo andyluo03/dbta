@@ -13,3 +13,26 @@ Generate code from template and schema. <br>
 
 Display schema. <br>
 `$ dbta -d log.sql`
+
+# SqlGen Documentation
+
+## General Functions
+
+`[Function Name](param_1, param_2, ...)["String", {}, {}, {}]`
+
+## COLUMN
+
+```
+[COLUMN i](table, separator, exclude){"Column: {}", i}
+```
+
+Examples:
+
+```
+Non-FK Columns:
+[COLUMN i](users, "\n", "*_id"){"* {}", i.name}
+```
+
+```
+[COLUMN i](users, exclude = "*"){"This should never really appear", i.name}
+```
